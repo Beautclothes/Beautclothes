@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautclothes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-branca: #FFFFFF;
+      --cor-dourada: #d4b045;
+      --cor-dourada-clara: #fff9e9;
+      --cor-texto: #1f1f1f;
+      --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--cor-branca);
+      color: var(--cor-texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--cor-dourada) 0%, #e6c65f 100%);
+      color: var(--cor-branca);
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--sombra-suave);
+      animation: slideDown 0.8s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--cor-branca);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--cor-branca);
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff7cf;
+    }
+
+    main {
+      padding: 50px 10%;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .banner {
+      background: linear-gradient(135deg, #fffbea 0%, #fff5d7 100%);
+      border: 1px solid var(--cor-dourada);
+      padding: 70px 40px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: var(--sombra-suave);
+      margin-bottom: 60px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: var(--cor-dourada);
+      margin: 0 0 15px;
+    }
+
+    .banner p {
+      font-size: 1.2em;
+      color: var(--cor-texto);
+      margin-bottom: 30px;
+    }
+
+    .banner button {
+      background: var(--cor-dourada);
+      border: none;
+      color: var(--cor-branca);
+      padding: 14px 36px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--sombra-suave);
+    }
+
+    .banner button:hover {
+      background: #b6932d;
+      transform: translateY(-3px);
+    }
+
+    .banner a {
+      text-decoration: none;
+      color: var(--cor-branca);
+    }
+
+    .catalogo {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .catalogo h2 {
+      text-align: center;
+      color: var(--cor-dourada);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4em;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .catalogo h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: var(--cor-dourada);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .tabela-precos {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      animation: fadeIn 1s ease;
+    }
+
+    .tabela-precos th {
+      background-color: var(--cor-dourada);
+      color: var(--cor-branca);
+      padding: 18px 22px;
+      font-size: 1.1em;
+      border: none;
+      text-align: left;
+    }
+
+    .tabela-precos th:first-child {
+      border-top-left-radius: 12px;
+    }
+
+    .tabela-precos th:last-child {
+      border-top-right-radius: 12px;
+    }
+
+    .tabela-precos td {
+      padding: 18px 22px;
+      font-size: 1.05em;
+      border-bottom: 1px solid #f0f0f0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tabela-precos tr:nth-child(even) {
+      background-color: #fffdfa;
+    }
+
+
+    .tabela-precos th:first-child,
+    .tabela-precos td:first-child {
+        width: 70%;
+    }
+
+    .tabela-precos th:last-child,
+    .tabela-precos td:last-child {
+        width: 30%;
+    }
+
+    .destaque-promocao {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--cor-dourada);
+      margin-top: 40px;
+      padding: 20px;
+      background-color: var(--cor-dourada-clara);
+      border: 2px dashed var(--cor-dourada);
+      border-radius: 12px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    footer {
+      background: linear-gradient(90deg, var(--cor-dourada) 0%, #b6932d 100%);
+      color: var(--cor-branca);
+      text-align: center;
+      padding: 40px 10%;
+      margin-top: 60px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    footer .social-links {
+      margin-top: 15px;
+    }
+
+    footer .social-links a {
+      color: var(--cor-branca);
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 1.5em;
+      transition: opacity 0.3s;
+    }
+
+    footer .social-links a:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Beautclothes</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner">
+      <h1>Beautclothes</h1>
+      <p>Uma loja virtual de roupa<br>Para todos os tipos de estilo.</p>
+      <button><a href="#catalogo">Ver Catálogo</a></button>
+    </section>
+
+    <section class="catalogo" id="catalogo">
+      <h2>Nosso Catálogo</h2>
+      <table class="tabela-precos">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Preço (a partir de)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tops / Cropped</td><td>R$ 35,00</td></tr>
+          <tr><td>Regatas estampadas</td><td>R$ 45,00 - R$ 50,00</td></tr>
+          <tr><td>Camisetas estampadas</td><td>R$ 45,00 - R$ 50,00</td></tr>
+          <tr><td>Vestido</td><td>R$ 55,00 - R$ 65,00</td></tr>
+          <tr><td>Blusas estampadas</td><td>R$ 60,00 - R$ 65,00</td></tr>
+          <tr><td>Calças legging</td><td>R$ 60,00 - R$ 70,00</td></tr>
+          <tr><td>Shorts saia</td><td>R$ 75,00</td></tr>
+          <tr><td>Shorts jeans</td><td>R$ 75,00</td></tr>
+          <tr><td>Moletom estampados</td><td>R$ 100,00 - R$ 105,00</td></tr>
+          <tr><td>Calças jeans</td><td>R$ 120,00 - R$ 150,00</td></tr>
+          <tr><td>Jaqueta</td><td>R$ 130,00 - R$ 150,00</td></tr>
+        </tbody>
+      </table>
+
+      <div class="destaque-promocao">
+        Temos preços promocionais!
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <p>© 2025 Beautclothes. Todos os direitos reservados.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/beauclothes__/">Instagram📸</a>
+    </div>
+  </footer>
+</body>
+</html>
