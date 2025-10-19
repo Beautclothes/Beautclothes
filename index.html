@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beautclothes</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="imgs/logos/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="imgs/logos/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="imgs/logos/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="imgs/logos/favicon_io/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -78,6 +82,11 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .banner {
       background: linear-gradient(135deg, #fffbea 0%, #fff5d7 100%);
@@ -127,7 +136,7 @@
     }
 
     .catalogo {
-      max-width: 950px;
+      max-width: 1200px; 
       margin: 0 auto;
     }
 
@@ -150,58 +159,48 @@
       border-radius: 2px;
     }
 
-    .tabela-precos {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px; 
+    }
+
+    .product-card {
+      background-color: var(--cor-branca);
       border-radius: 12px;
-      overflow: hidden;
       box-shadow: var(--sombra-suave);
-      animation: fadeIn 1s ease;
+      overflow: hidden; 
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.8s ease forwards; 
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .tabela-precos th {
-      background-color: var(--cor-dourada);
-      color: var(--cor-branca);
-      padding: 18px 22px;
+    .product-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 3 / 4; 
+      object-fit: cover; 
+      background-color: #f0f0f0; 
+    }
+
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4em;
+      color: var(--cor-texto);
+      margin: 20px 15px 10px;
+    }
+
+    .product-card .price {
       font-size: 1.1em;
-      border: none;
-      text-align: left;
-    }
-
-    .tabela-precos th:first-child {
-      border-top-left-radius: 12px;
-    }
-
-    .tabela-precos th:last-child {
-      border-top-right-radius: 12px;
-    }
-
-    .tabela-precos td {
-      padding: 18px 22px;
-      font-size: 1.05em;
-      border-bottom: 1px solid #f0f0f0;
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .tabela-precos tr:nth-child(even) {
-      background-color: #fffdfa;
-    }
-
-
-    .tabela-precos th:first-child,
-    .tabela-precos td:first-child {
-        width: 70%;
-    }
-
-    .tabela-precos th:last-child,
-    .tabela-precos td:last-child {
-        width: 30%;
+      font-weight: 600;
+      color: var(--cor-dourada);
+      margin: 0 15px 20px;
     }
 
     .destaque-promocao {
@@ -264,28 +263,76 @@
 
     <section class="catalogo" id="catalogo">
       <h2>Nosso Catálogo</h2>
-      <table class="tabela-precos">
-        <thead>
-          <tr>
-            <th>Produto</th>
-            <th>Preço (a partir de)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Tops / Cropped</td><td>R$ 35,00</td></tr>
-          <tr><td>Regatas estampadas</td><td>R$ 45,00 - R$ 50,00</td></tr>
-          <tr><td>Camisetas estampadas</td><td>R$ 45,00 - R$ 50,00</td></tr>
-          <tr><td>Vestido</td><td>R$ 55,00 - R$ 65,00</td></tr>
-          <tr><td>Blusas estampadas</td><td>R$ 60,00 - R$ 65,00</td></tr>
-          <tr><td>Calças legging</td><td>R$ 60,00 - R$ 70,00</td></tr>
-          <tr><td>Shorts saia</td><td>R$ 75,00</td></tr>
-          <tr><td>Shorts jeans</td><td>R$ 75,00</td></tr>
-          <tr><td>Moletom estampados</td><td>R$ 100,00 - R$ 105,00</td></tr>
-          <tr><td>Calças jeans</td><td>R$ 120,00 - R$ 150,00</td></tr>
-          <tr><td>Jaqueta</td><td>R$ 130,00 - R$ 150,00</td></tr>
-        </tbody>
-      </table>
+      
+      <div class="product-grid">
+        
+        <div class="product-card">
+          <img src="imgs/cropped.jpg" alt="Tops / Cropped">
+          <h3>Tops / Cropped</h3>
+          <p class="price">R$ 35,00</p>
+        </div>
+        
+        <div class="product-card">
+          <img src="imgs/regata estampada.jpg" alt="Regatas estampadas">
+          <h3>Regatas estampadas</h3>
+          <p class="price">R$ 45,00 - R$ 50,00</p>
+        </div>
 
+        <div class="product-card">
+          <img src="imgs/camisa estampada.jpg" alt="Camisetas estampadas">
+          <h3>Camisetas estampadas</h3>
+          <p class="price">R$ 45,00 - R$ 50,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/vestido.jpg" alt="Vestido">
+          <h3>Vestido</h3>
+          <p class="price">R$ 55,00 - R$ 65,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/blusa estampada.jpg" alt="Blusas estampadas">
+          <h3>Blusas estampadas</h3>
+          <p class="price">R$ 60,00 - R$ 65,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/calça legging.jpg" alt="Calças legging">
+          <h3>Calças legging</h3>
+          <p class="price">R$ 60,00 - R$ 70,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/short saia.jpg" alt="Shorts saia">
+          <h3>Shorts saia</h3>
+          <p class="price">R$ 75,00</p>
+        </div>
+        
+        <div class="product-card">
+          <img src="imgs/short jeans.jpg" alt="Shorts jeans">
+          <h3>Shorts jeans</h3>
+          <p class="price">R$ 75,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/moletom estampado.jpg" alt="Moletom estampados">
+          <h3>Moletom estampados</h3>
+          <p class="price">R$ 100,00 - R$ 105,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/calça jeans.jpg" alt="Calças jeans">
+          <h3>Calças jeans</h3>
+          <p class="price">R$ 120,00 - R$ 150,00</p>
+        </div>
+
+        <div class="product-card">
+          <img src="imgs/jaqueta.jpg" alt="Jaqueta">
+          <h3>Jaqueta</h3>
+          <p class="price">R$ 130,00 - R$ 150,00</p>
+        </div>
+
+      </div>
       <div class="destaque-promocao">
         Temos preços promocionais!
       </div>
